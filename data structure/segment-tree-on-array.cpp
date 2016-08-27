@@ -88,7 +88,6 @@ public:
     int query(int l, int r) {
         return _query(ptr, 0, sz(arr) - 1, l, r);
     }
-
 };
 
 void solve () {
