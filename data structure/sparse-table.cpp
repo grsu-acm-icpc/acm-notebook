@@ -36,6 +36,19 @@ T gcd (T a, T b) {
     return b ? gcd(b, a % b) : a;
 }
 
+const int MAXN = 100500;
+
+char memory[MAXN * 300], *pointer = memory;
+
+void *operator new (size_t c) {
+    void *ans = pointer;
+    pointer += c;
+    return ans;
+}
+
+void operator delete (void *p) {
+}
+
 struct sparse_table {
     vector<vector<int> > table;
     vector<int> pows;
@@ -46,7 +59,7 @@ struct sparse_table {
         return res;
     }
 
-    sparse_table(vector<int> arr, int inf) {
+    sparse_table(vector<int> &arr, int inf) {
         int n = sz(arr);
         int lg2 = getSize(sz(arr));
 
