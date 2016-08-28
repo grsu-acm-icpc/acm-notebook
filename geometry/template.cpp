@@ -56,7 +56,7 @@ struct point {
         return point(x - o.x, y - o.y);
     }
 
-    point operator * (const double o) {
+    point operator * (const double &o) {
         return point(x * o, y * o);
     }
 
